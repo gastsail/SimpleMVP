@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SimpleMVP</string>
+    <string name="mainoptions_apodtitle">Astronomy Picture of the Day</string>
+    <string name="title_activity_isslive">ISSLive</string>
+    <string name="error_fetchdata">Error al traer los datos, intentelo nuevamente.</string>
+    <string name="error_fetching_data_from_server">Error fetching data from server</string>
+    <string name="youtube_video_load_failed">Video load failed.</string>
+</resources>
