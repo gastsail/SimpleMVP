@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.show_apod.view.ApodDetail">
+
+        <ProgressBar
+            android:id="@+id/progressbar_apoddetail_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:id="@+id/imageview_apoddetail_reload"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:elevation="1dp"
+        android:src="@drawable/ic_loop_grey_24dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/imageview_apoddetail_reload">
+
+        <TextView
+            android:id="@+id/textview_apoddetail_fetcherror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageview_apoddetail_reload"
+            android:layout_marginTop="1dp"
+            android:drawableStart="@drawable/ic_error_grey_24dp"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:text="@string/error_fetching_data_from_server"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+   <ImageView
+       android:id="@+id/imageview_apoddetail_coverimage"
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       android:src="@mipmap/ic_launcher"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar_apoddetail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textview_apoddetail_title"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_marginBottom="100dp"/>
+
+    <TextView
+        android:id="@+id/textview_apoddetail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview_apoddetail_coverimage"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Example Title"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textview_apoddetail_title">
+
+        <TextView
+            android:id="@+id/textview_apoddetail_apoddesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Example content text..."/>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

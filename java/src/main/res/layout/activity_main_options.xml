@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".presentation.MainOptions">
+
+
+   <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:onClick="apodAction"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imageview_mainoptions_apod"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:src="@drawable/apod"/>
+
+    <TextView
+        android:id="@+id/textview_mainoptions_apod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="@string/mainoptions_apodtitle" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:layout_marginTop="50dp"
+        android:onClick="issAction"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageview_mainoptions_iss"
+            android:layout_width="200dp"
+            android:layout_height="130dp"
+            android:src="@drawable/iss"/>
+
+        <TextView
+            android:id="@+id/textview_mainoptions_iss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="Watch the ISS Live" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
