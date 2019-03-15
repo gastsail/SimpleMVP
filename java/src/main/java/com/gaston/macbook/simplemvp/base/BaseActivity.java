@@ -1,14 +1,9 @@
 package com.gaston.macbook.simplemvp.base;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.gaston.macbook.simplemvp.R;
-
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

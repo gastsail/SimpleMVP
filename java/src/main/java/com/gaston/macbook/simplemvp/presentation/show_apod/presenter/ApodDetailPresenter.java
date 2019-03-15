@@ -5,7 +5,6 @@ import com.gaston.macbook.simplemvp.presentation.show_apod.ApodDetailContract;
 import com.gaston.macbook.simplemvp.presentation.show_apod.model.Apod;
 import com.gaston.macbook.simplemvp.domain.interactor.ApodDetailsInteractor;
 import com.gaston.macbook.simplemvp.data.cache.ImageCacheImpl;
-
 import androidx.annotation.NonNull;
 
 public class ApodDetailPresenter extends BasePresenter<ApodDetailContract.View> implements ApodDetailContract.Presenter {
