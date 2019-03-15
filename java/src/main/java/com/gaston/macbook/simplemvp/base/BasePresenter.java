@@ -1,44 +1,22 @@
 package com.gaston.macbook.simplemvp.base;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.gaston.macbook.simplemvp.presentation.show_apod.ApodDetailContract;
 
-public abstract class BasePresenter {
+public abstract class BasePresenter<T extends ApodDetailContract.View> implements Presenter<T> {
 
-    protected BasePresenter() {
+    private T mMvpView;
+
+    @Override
+    public void attachView(T mvpView) {
+        mMvpView = mvpView;
     }
 
-    @CallSuper
-    void onCreate(@Nullable final Bundle savedInstanceState) {
+    @Override
+    public void detachView() {
+        mMvpView = null;
     }
 
-    @CallSuper
-    void onResume() {
+    public boolean isViewAttached() {
+        return mMvpView != null;
     }
-
-    @CallSuper
-    void onPause() {
-    }
-
-    @CallSuper
-    void onSaveInstanceState(@NonNull final Bundle outState) {
-    }
-
-    @CallSuper
-    void onDestroy() {
-    }
-
-    @CallSuper
-    void onActivityResult(final int requestCode, final int resultCode, @Nullable final Intent data) {
-    }
-
-    @CallSuper
-    void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions,
-                                    @NonNull final int[] grantResults) {
-    }
-
-
 }

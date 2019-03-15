@@ -8,13 +8,13 @@ import com.gaston.macbook.simplemvp.data.cache.ImageCacheImpl;
 
 import androidx.annotation.NonNull;
 
-public class ApodDetailPresenter extends BasePresenter implements ApodDetailContract.Presenter {
+public class ApodDetailPresenter extends BasePresenter<ApodDetailContract.View> implements ApodDetailContract.Presenter {
 
     private ApodDetailContract.View view;
     private ApodDetailsInteractor apodInteractor;
     private ImageCacheImpl cache;
 
-    public ApodDetailPresenter(@NonNull ApodDetailContract.View view, @NonNull ApodDetailsInteractor apodInteractor, ImageCacheImpl cache) {
+    public ApodDetailPresenter(@NonNull ApodDetailContract.View view ,ApodDetailsInteractor apodInteractor, ImageCacheImpl cache) {
         this.view = view;
         this.apodInteractor = apodInteractor;
         this.cache = cache;
@@ -27,16 +27,21 @@ public class ApodDetailPresenter extends BasePresenter implements ApodDetailCont
         apodInteractor.getApodDataFromRemote(new ApodDetailsInteractor.onDetailsFetched() {
             @Override
             public void onSuccess(Apod apodFetchedData) {
-                view.hideProgressBar();
-                view.showApod();
-                view.showApodDetails(apodFetchedData);
-                cache.saveHdUrl(apodFetchedData.getHdurl());
+                    if(isViewAttached()){
+                        view.hideProgressBar();
+                        view.showApod();
+                        view.showApodDetails(apodFetchedData);
+                        cache.saveHdUrl(apodFetchedData.getHdurl());
+                    }
             }
 
             @Override
             public void onFailure() {
-                view.showDataFetchError();
-                view.hideProgressBar();
+                if(isViewAttached()){
+                    view.showDataFetchError();
+                    view.hideProgressBar();
+                }
+
             }
         });
     }

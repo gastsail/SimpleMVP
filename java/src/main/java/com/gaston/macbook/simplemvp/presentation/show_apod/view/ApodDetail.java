@@ -51,20 +51,21 @@ public class ApodDetail extends BaseActivity<ApodDetailPresenter> implements Apo
     @NonNull
     @Override
     protected ApodDetailPresenter createPresenter(@NonNull Context context) {
-        return new ApodDetailPresenter(this, new ApodDetailsInteractor(), new ImageCacheImpl(this));
+        return new ApodDetailPresenter(this , new ApodDetailsInteractor(), new ImageCacheImpl(this));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_apod_detail);
-        ButterKnife.bind(this);
         fetchApodDetails();
         imageviewApoddetailReload.bringToFront();
+        presenter.attachView(this);
     }
 
+    @Override
+    public int getLayout() {
+        return R.layout.activity_apod_detail;
+    }
 
     @Override
     public void showProgressBar() {
@@ -129,7 +130,6 @@ public class ApodDetail extends BaseActivity<ApodDetailPresenter> implements Apo
         presenter.fetchApodData();
     }
 
-
     @Override
     public void showDataFetchError() {
         imageviewApoddetailReload.setVisibility(View.VISIBLE);
@@ -158,4 +158,15 @@ public class ApodDetail extends BaseActivity<ApodDetailPresenter> implements Apo
         expandApodImage();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.detachView();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
 }
