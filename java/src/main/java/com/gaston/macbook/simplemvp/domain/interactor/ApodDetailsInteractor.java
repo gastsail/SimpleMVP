@@ -20,7 +20,6 @@ public class ApodDetailsInteractor {
         void onFailure();
     }
 
-
     public void getApodDataFromRemote(final onDetailsFetched listener){
 
         Retrofit retrofit = new Retrofit.Builder()
